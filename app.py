@@ -66,8 +66,7 @@ with col_right:
 st.markdown("---")
 st.success("👍 **Ready to explore the findings?** Head over to the **visualizations** page using the sidebar navigation on the left to start filtering bird observations, analyzing seasonal trends, and exploring datasets!")
                              
-                             
-=======
+                            
 import streamlit as st
 import sqlite3
 import pandas as pd
