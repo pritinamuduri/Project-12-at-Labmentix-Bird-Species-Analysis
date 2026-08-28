@@ -162,12 +162,12 @@ else:
                          with col2:
                             st.markdown("### Actionable Recommendations") 
                             st.markdown(
-                              
-                              "- **Ecosystem Balancing:** Allocate future ecological survey evenly.\n"
-                              "- **Targeted Conservation:** Utilize the high-density forest proportions."
+                                "- **Ecosystem Balancing:** Allocate future ecological survey evenly.\n"
+                                "- **Targeted Conservation:** Utilize the high-density forest proportions."
+                            )
 
                               
-                            )                
+                                        
     with tab2:
         st.subheader("Temporal Trends Over Years (Interactive Tooltips)")
         # Check what columns actually exist to prevent silent skipping
