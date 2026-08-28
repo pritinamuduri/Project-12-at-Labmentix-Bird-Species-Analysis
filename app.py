@@ -3,6 +3,7 @@
 
 import sqlite3
 import pandas as pd
+import streamlit as st
 df = pd.read_csv("cleaned_ecological_data.csv", sep=";")
 conn = sqlite3.connect("bird_species_analysis.db")
 df.to_sql("bird_observations", conn, if_exists="replace", index=False)
