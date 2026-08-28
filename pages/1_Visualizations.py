@@ -148,8 +148,9 @@ else:
                     )
                     fig_seas.update_traces(hovertemplate="<b>Season:</b> %{label}<br><b>Count:</b> %{Value:,}<br><b>Percentage:</b> %{percent}<extra></extra>")
                     st.plotly_chart(fig_seas, use_container_width=True)
+                    col1, col2 = st.columns(2)
                     with st.expander("View Pie Chart Observations & Ecological Recommendations"):
-                         col1, col2 = st.columns(2)
+                 
                          with col1:
                               st.markdown("### Key Observations")
                               st.markdown(
@@ -158,7 +159,7 @@ else:
                                    * **Habitat Skew:** The disproportionate share highlights a higher concentration of recording activity or native bird density within forested park units.
 """
                               )
-        with col2:
+                        with col2:
              st.markdown("### Actionable Recommendations") 
              st.markdown(
                   """
