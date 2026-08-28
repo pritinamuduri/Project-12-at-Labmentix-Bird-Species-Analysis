@@ -160,14 +160,14 @@ else:
 """
                               )
                         with col2:
-             st.markdown("### Actionable Recommendations") 
-             st.markdown(
-                  """
-                  * **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
-                  * **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
+                             st.markdown("### Actionable Recommendations") 
+                             st.markdown(
+                             """
+                             * **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
+                             * **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
 
 """
-             )                
+                            )                
     with tab2:
         st.subheader("Temporal Trends Over Years (Interactive Tooltips)")
         # Check what columns actually exist to prevent silent skipping
@@ -177,7 +177,7 @@ else:
              year_col = 'year' if 'year' in filtered_df.columns else ('Year' if 'Year' in filtered_df.columns else 'Date')
              hab_col = 'habitat_type' if 'habitat_type' in filtered_df.columns else 'Location_Type'
              # Group data safely for the line chart
-             treand_data = filtered_df.groupby([year_col, hab_col]).size().reset_index(name='Observation Count')
+             trend_data = filtered_df.groupby([year_col, hab_col]).size().reset_index(name='Observation Count')
              fig_trend = px.line(
                   treand_data,
                   x=year_col,
