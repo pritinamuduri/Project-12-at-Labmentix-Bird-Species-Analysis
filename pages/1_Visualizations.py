@@ -161,10 +161,8 @@ else:
                               )
                          with col2:
                             st.markdown("### Actionable Recommendations") 
-                            st.markdown(
-                                "- **Ecosystem Balancing:** Allocate future ecological survey evenly.\n"
-                                "- **Targeted Conservation:** Utilize the high-density forest proportions."
-                            )
+                            st.markdown("- **Ecosystem Balancing:** Allocate future ecological survey evenly.\n- **Targeted Conservation:** Utilize the high-density forest proportions.")
+                            
 
                               
                                         
