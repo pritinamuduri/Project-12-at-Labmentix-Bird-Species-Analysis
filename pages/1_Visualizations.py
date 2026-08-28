@@ -157,16 +157,16 @@ else:
                                    """
                                    * ** Ecosystem Share:** Forest habitats comprise the dominant portion  of recorded observations (67.2%) while grassland represents a smaller share (32.8%)
                                    * **Habitat Skew:** The disproportionate share highlights a higher concentration of recording activity or native bird density within forested park units.
-"""
+                                  """
                               )
                         with col2:
-                             st.markdown("### Actionable Recommendations") 
-                             st.markdown(
-                             """
-                             * **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
-                             * **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
+                              st.markdown("### Actionable Recommendations") 
+                              st.markdown(
+                              """
+                              * **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
+                              * **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
 
-"""
+                              """
                             )                
     with tab2:
         st.subheader("Temporal Trends Over Years (Interactive Tooltips)")
