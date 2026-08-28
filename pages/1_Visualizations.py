@@ -163,8 +163,8 @@ else:
                             st.markdown("### Actionable Recommendations") 
                             st.markdown(
                               
-                              "- **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus"
-                              "- **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species"
+                              "- **Ecosystem Balancing:** Allocate future ecological survey evenly.\n"
+                              "- **Targeted Conservation:** Utilize the high-density forest proportions."
 
                               
                             )                
