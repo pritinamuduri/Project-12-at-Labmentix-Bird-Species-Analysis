@@ -161,12 +161,12 @@ else:
                               )
                         with col2:
                             st.markdown("### Actionable Recommendations") 
-                             st.markdown(
-                              """
-                              * **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
-                              * **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
+                            st.markdown(
+                              
+                              "- **Ecosystem Balancing:** Allocate future ecological survey evenly to ensure grassland habitats receive sufficient monitoring focus.
+                              "- **Targeted Conservation:** Utilize the high-density forest proportion to baseline healthy baseline environments for at-risk species.
 
-                              """
+                              
                             )                
     with tab2:
         st.subheader("Temporal Trends Over Years (Interactive Tooltips)")
