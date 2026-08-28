@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import sqlite3
 import pandas as pd
 # 1. Read your Excel files
@@ -13,7 +13,7 @@ df_grassland.to_sql('bird_observations', conn, if_exists='append', index=False)
 conn.close()
 print("Data successfully loaded into the database!")
 
-=======
+
 import sqlite3
 import pandas as pd
 # 1. Read your Excel files
@@ -28,5 +28,4 @@ df_grassland.to_sql('bird_observations', conn, if_exists='append', index=False)
 conn.close()
 print("Data successfully loaded into the database!")
 
->>>>>>> 7dd07cb (Fix video path for cloud deployment)
                     
