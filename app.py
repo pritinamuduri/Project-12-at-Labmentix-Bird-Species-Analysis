@@ -3,7 +3,7 @@
 
 import sqlite3
 import pandas as pd
-df = pd.read_csv("cleaned_ecological_data.csv")
+df = pd.read_csv("cleaned_ecological_data.csv", sep=";")
 conn = sqlite3.connect("bird_observations", conn, if_exists="replace", index=False)
 
 conn.close()
