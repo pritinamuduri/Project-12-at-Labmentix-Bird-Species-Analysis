@@ -270,22 +270,26 @@ else:
         # 3. Quick Spatial/Location Breakdown Chart
         loc_col = 'Location_Type' if 'Location_Type' in display_df.columns else ('location_type' if 'location_type' in display_df.columns else None)
         if loc_col:
-            
             loc_df = display_df.groupby(loc_col).size().reset_index(name='Count')
-                
-      
             fig_loc = px.bar(
             loc_df,
             x=loc_col,
             y='Count',
             color=loc_col,
             template="plotly_white"
-        )
-        st.plotly_chart(fig_loc, use_container_width=True)
+            )
+            st.plotly_chart(fig_loc, use_container_width=True)
+        else:
+             st.info("Location column not found in dataset for spatial breakdown.")
+       
+    
+         
         with st.expander("View Location Type Insights & Recommendations"):
             col1, col2 = st.columns(2)
             with col1:
                 st.markdown("### Key Observations")
+      
+                
                 st.markdown(
                     """
                                         * ** Habitat Distribution:** Forest observation counts outnumber Grassland counts, indicating a heavier density of recorded surveys in wooded environments
