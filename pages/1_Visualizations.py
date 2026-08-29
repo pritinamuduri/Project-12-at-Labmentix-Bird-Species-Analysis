@@ -79,13 +79,13 @@ else:
 """
                 )
     # --- DYNAMIC SIDEBAR MULTISELECT FILTERS---
-    hab_col = 'habitat' if 'habitat' in df.columns else ('Habitat' if 'Habitat' in df.columns else None)
+    hab_col = 'habitat_type' if 'habitat' in df.columns else ('Habitat' if 'Habitat' in df.columns else None)
     season_col = 'season' if 'season' in df.columns else ('Season' if 'Season' in df.columns else None)
     sheet_col = 'sheet_name' if 'sheet_name' in df.columns else ('Sheet_Name' if 'Sheet_Name' in df.columns else None)
     
     selected_habitats = st.sidebar.multiselect(
         "Selected Habitats",
-        options=df[hab_col].dropna().unique().tolist() if hab_col else [],
+        options=df['habitat_type'].dropna().unique().tolist() if hab_col else [],
         key="habitat_multiselect"
     )
     selected_seasons = st.sidebar.multiselect(
