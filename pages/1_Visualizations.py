@@ -2,6 +2,7 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import plotly.express as px
+from load_data import load_dat_from_sqlite
 st.set_page_config(page_title="Interactive Bird Visualizations",
                    page_icon="📊", layout="wide")
 st.title("📊 Highly Interactive Ecological Data Dashboard")
@@ -9,13 +10,6 @@ st.markdown(
     "Hover over any chart element to view rich, Power BI style tooltips with detailed metrics.")
 # Function to load data from SQLite database
 
-
-@st.cache_data
-def load_dat_from_sqlite():
-    conn = sqlite3.connect('bird_species_analysis.db')
-    df = pd.read_sql("SELECT * FROM bird_observations", conn)
-    conn.close()
-    return df
 
 
 df = load_dat_from_sqlite()
@@ -308,3 +302,6 @@ else:
                                            * **Resource Re-allocation:** Increase monitoring efforts in grassland sectors to balance data collection and assess open-habitat bird health
                                            """
                 )
+
+
+
