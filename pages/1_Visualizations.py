@@ -278,7 +278,8 @@ else:
                 color=loc_col,
                 template="plotly_white"
             )
-            st.plotly_chart(fig_loc, use_container_width=True)
+            st.plotly_chart(fig_loc, width="stretch")# or drop the parameter if default suffices
+            
         else:
              st.info("Location column not found in dataset for spatial breakdown.")
        
