@@ -90,7 +90,7 @@ else:
     )
     selected_seasons = st.sidebar.multiselect(
         "Select Seasons",
-        options=df[season_col].dropna().unique().tolist() 'season' in df.columns else [],
+        options=df['season'].dropna().unique().tolist() 'season' in df.columns else [],
         key="season_multiselect"
     )
     selected_sheets = st.sidebar.multiselect(
