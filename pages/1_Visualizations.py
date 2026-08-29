@@ -96,10 +96,9 @@ else:
     if not selected_habitats:
         selected_habitats = df[hab_column].dropna().unique().tolist()
     if not selected_seasons:
-        selected_seasons = df[season_column].dropna().unique().tolist() if season_column and season_column in df.columns else []
-    if not selected_sheets:
-        selected_sheets = df[sheet_column].dropna().unique().tolist() if sheet_column and sheet_column in df.columns else []
-       # Initialize filtered dataframe
+        selected_seasons = df[season_column].dropna().unique().tolist()     
+        selected_sheets = df[sheet_column].dropna().unique().tolist() 
+    # Initialize filtered dataframe
     filtered_df = df.copy()
     # Apply filters safely based on selections
     if hab_column in filtered_df.columns and selected_habitats:
