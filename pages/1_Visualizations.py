@@ -125,7 +125,7 @@ else:
         with col_a:
             if not filtered_df.empty and 'habitat_type' in filtered_df.columns:
                 # Group data to include breakdown details in the tooltip
-                hab_counts = filtered_df['habitat_type'].value_counts(
+                hab_counts = filtered_df[hab_column].value_counts(
                 ).reset_index()
                 hab_counts.columns = ['Habitat', 'Observation Count']
                 # Bar chart with custom hover tooltip integration
