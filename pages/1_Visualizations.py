@@ -94,24 +94,22 @@ else:
         selected_seasons = df['season'].dropna().unique().tolist()
     if not selected_sheets:
         selected_sheets = df['sheet_name'].dropna().unique().tolist()
-    # Now filter the dataframe safely
-    filtered_df = df[
-        df['habitat_type'].isin(selected_habitats) &
-        df['season'].isin(selected_seasons) &
-        df['sheet_name'].isin(selected_sheets)
-    ]    
-         
-    # Initialize filtered_df safely from the main DataFrame
+    # Safe dynamic column fallback and filtering 
+    hab_column = hab_col if ('hab_col' in locals() and hab_col in df.columns) else ('habitat_type' if 'habitat_type' in df.columns else df.columns[0])
+    season_column = season_col if ('season_col' in locals() and season_col in df.columns) else ('season' if 'season' in df.columns else None)
+    sheet_column = sheet_col if ('sheet_col' in locals() and sheet_col in df.columns) else ('sheet_name' if 'sheet_name' in df.columns else None)
+    # Initialize filtered dataframe
     filtered_df = df.copy()
-    # Apply filters if user has selected any options
-    if selected_habitats and hab_col:
-        filtered_df = filtered_df[filtered_df[hab_col].isin(selected_habitats)]
-    if selected_seasons and season_col:
-        filtered_df = filtered_df = filtered_df[filtered_df[season_col].isin(selected_seasons)]  
-    if selected_sheets and sheet_col:
-        filtered_df = filtered_df[filtered_df[sheet_col].isin(selected_sheets)]      
+    # Apply filters safely based on selections
+    if hab_column in filtered_df.columns and selected_habitats:
+        filtered_df = filtered_df[filtered_df[hab_column].isin(selected_habitats)]
+    if season_column and season_column in filtered_df.columns and selected_seasons:  
+     filtered_df = filtered_df[filtered_df[season_column].isin(selected_seasons)]  
+    if sheet_column and sheet_column in filtered_df.columns and selected_sheets:
+     filtered_df = filtered_df[filtered_df[sheet_column].isin(selected_sheets)]
+    
           # --- TOP METRICS ROW ---
-    st.markdown("### 📈 Key Performance Indicators")
+     st.markdown("### 📈 Key Performance Indicators")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Filtered Records", f"{len(filtered_df):,}")
     m2.metric("Active Habitats", filtered_df['habitat_type'].nunique(
