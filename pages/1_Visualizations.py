@@ -90,13 +90,13 @@ else:
     # If no habitats are selected default to all available habitats
     # Safe dynamic column fallback and filtering 
     hab_column = hab_col if ('hab_col' in locals() and hab_col in df.columns) else ('habitat_type' if 'habitat_type' in df.columns else df.columns[0])
-    season_column = season_col if ('season_col' in locals() and season_col in df.columns) else ('season' if 'season' in df.columns else None)
+    season_column = next((col for col in ['season', 'Season', 'SEASON', 'season_name'] if col in df.columns), None)
     sheet_column = sheet_col if ('sheet_col' in locals() and sheet_col in df.columns) else ('sheet_name' if 'sheet_name' in df.columns else None)
     
     if not selected_habitats:
         selected_habitats = df[hab_column].dropna().unique().tolist()
     if not selected_seasons:
-        selected_seasons = df[season_column].dropna().unique().tolist()
+        selected_seasons = df[season_column].dropna().unique().tolist() if season_column and season_column in df.columns else []
     if not selected_sheets:
         selected_sheets = df['sheet_name'].dropna().unique().tolist()
        # Initialize filtered dataframe
