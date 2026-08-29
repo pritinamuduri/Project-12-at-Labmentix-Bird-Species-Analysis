@@ -272,11 +272,11 @@ else:
         if loc_col:
             loc_df = display_df.groupby(loc_col).size().reset_index(name='Count')
             fig_loc = px.bar(
-            loc_df,
-            x=loc_col,
-            y='Count',
-            color=loc_col,
-            template="plotly_white"
+                loc_df,
+                x=loc_col,
+                y='Count',
+                color=loc_col,
+                template="plotly_white"
             )
             st.plotly_chart(fig_loc, use_container_width=True)
         else:
