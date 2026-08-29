@@ -87,6 +87,20 @@ else:
         key="sheet_multiselect"
 
     )
+    # If no habitats are selected default to all available habitats
+    if not selected_habitats:
+        selected_habitats = df['habitat_type'].dropna().unique().tolist()
+    if not selected_seasons:
+        selected_seasons = df['season'].dropna().unique().tolist()
+    if not selected_sheets:
+        selected_sheets = df['sheet_name'].dropna().unique().tolist()
+    # Now filter the dataframe safely
+    filtered_df = df[
+        df['habitat_type'].isin(selected_habitats) &
+        df['season'].isin(selected_seasons) &
+        df['sheet_name'].isin(selected_sheets)
+    ]    
+         
     # Initialize filtered_df safely from the main DataFrame
     filtered_df = df.copy()
     # Apply filters if user has selected any options
