@@ -83,7 +83,7 @@ else:
     season_col = 'season' if 'season' in df.columns else ('Season' if 'Season' in df.columns else None)
     sheet_col = 'sheet_name' if 'sheet_name' in df.columns else ('Sheet_Name' if 'Sheet_Name' in df.columns else None)
     
-    selected_habitats = st.sidebar.mutiselect(
+    selected_habitats = st.sidebar.multiselect(
         "Selected Habitats",
         options=df[hab_col].dropna().unique().tolist() if hab_col else []
     )
