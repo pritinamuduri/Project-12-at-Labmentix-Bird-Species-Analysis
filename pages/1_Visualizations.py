@@ -93,7 +93,7 @@ else:
         options=df[season_col].dropna().unique().tolist() if season_col else [],
         key="season_multiselect"
     )
-    selected_sheets = st.sidebar.mutiselect(
+    selected_sheets = st.sidebar.multiselect(
         "Select Administrative Units (Sheets)",
         options=df[sheet_col].dropna().unique().tolist() if sheet_col else [],
         key="sheet_muktiselect"
