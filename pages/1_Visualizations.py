@@ -85,15 +85,18 @@ else:
     
     selected_habitats = st.sidebar.multiselect(
         "Selected Habitats",
-        options=df[hab_col].dropna().unique().tolist() if hab_col else []
+        options=df[hab_col].dropna().unique().tolist() if hab_col else [],
+        key="habitat_multiselect"
     )
     selected_seasons = st.sidebar.multiselect(
         "Select Seasons",
-        options=df[season_col].dropna().unique().tolist() if season_col else []
+        options=df[season_col].dropna().unique().tolist() if season_col else [],
+        key="season_multiselect"
     )
     selected_sheets = st.sidebar.mutiselect(
         "Select Administrative Units (Sheets)",
-        options=df[sheet_col].dropna().unique().tolist() if sheet_col else []
+        options=df[sheet_col].dropna().unique().tolist() if sheet_col else [],
+        key="sheet_muktiselect"
 
     )
           # --- TOP METRICS ROW ---
