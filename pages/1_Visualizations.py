@@ -207,14 +207,7 @@ else:
 
 """
                        )
-                       with col2:
-                            st.markdown("### Actionable Recommendations")
-                            st.markdown(
-                                 """
-                                 * **Targeted Scheduling:** Schedule future ecological surveys during peak activity windows.
-                                 * **Long-Term Monitoring:** Maintain multi-year tracking to assess population stability
-"""
-                            )
+                       
         else:
              st.info("No temporal data available for the current filter selection. Please adjust your filters above.")
     with tab3:
