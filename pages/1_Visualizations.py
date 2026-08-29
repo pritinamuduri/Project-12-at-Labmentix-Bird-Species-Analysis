@@ -87,7 +87,7 @@ else:
         "Selected Habitats",
         options=df[hab_col].dropna().unique().tolist() if hab_col else []
     )
-    selected_seasons = st.sidebarmultiselect(
+    selected_seasons = st.sidebar.multiselect(
         "Select Seasons",
         options=df[season_col].dropna().unique().tolist() if season_col else []
     )
