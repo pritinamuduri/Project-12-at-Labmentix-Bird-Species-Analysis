@@ -272,10 +272,10 @@ else:
             'location_type' if 'location_type' in display_df.columns else None)
         if loc_col:
             st.write("### Observations by Location Type")
-            loc_df = display_df.groupby(
-                loc_col).size().reset_index(name='Count')
-        import plotly.express as px
-        fig_loc = px.bar(
+            loc_df = display_df.groupby(loc_col).size().reset_index(name='Count')
+                
+      
+            fig_loc = px.bar(
             loc_df,
             x=loc_col,
             y='Count',
