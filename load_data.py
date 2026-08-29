@@ -1,5 +1,8 @@
+import streamlit as st
 import sqlite3
 import pandas as pd
+
+@st.cache_data
 def load_dat_from_sqlite():
     conn = sqlite3.connect("bird_species_analysis.db")
     cursor = conn.cursor()
