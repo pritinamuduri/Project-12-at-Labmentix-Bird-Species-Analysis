@@ -98,7 +98,7 @@ else:
     if not selected_seasons:
         selected_seasons = df[season_column].dropna().unique().tolist() if season_column and season_column in df.columns else []
     if not selected_sheets:
-        selected_sheets = df[sheet_column].dropna().unique().tolist() if sheet_column and sheet_column in df.columns else[]
+        selected_sheets = df[sheet_column].dropna().unique().tolist() if sheet_column and sheet_column in df.columns else []
        # Initialize filtered dataframe
     filtered_df = df.copy()
     # Apply filters safely based on selections
@@ -113,7 +113,7 @@ else:
      st.markdown("### 📈 Key Performance Indicators")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Filtered Records", f"{len(filtered_df):,}")
-    m2.metric("Active Habitats", filtered_df['hab_column'].nunique() if hab_column in filtered_df.columns else 0)
+    m2.metric("Active Habitats", filtered_df[hab_column].nunique() if hab_column in filtered_df.columns else 0)
     m3.metric("Admin Units Included", filtered_df['sheet_column'].nunique() if sheet_column in filtered_df.columns else 0)
     m4.metric("Total Dataset Size", f"{len(df):,}")
     st.markdown("---")
