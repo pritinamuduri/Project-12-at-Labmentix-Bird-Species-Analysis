@@ -1,4 +1,4 @@
-import pathlib from path
+from pathlib import path
 import sqlite3
 import pandas as pd
 import streamlit as st
