@@ -96,9 +96,18 @@ else:
     selected_sheets = st.sidebar.multiselect(
         "Select Administrative Units (Sheets)",
         options=df[sheet_col].dropna().unique().tolist() if sheet_col else [],
-        key="sheet_muktiselect"
+        key="sheet_multiselect"
 
     )
+    # Initialize filtered_df safely from the main DataFrame
+    filtered_df = df.copy()
+    # Apply filters if user has selected any options
+    if selected_habitats and hab_col:
+        filtered_df = filtered_df[filtered_df[hab_col].isin(selected_habitats)]
+    if selected_seasons and season_col:
+        filtered_df = filtered_df = filtered_df[filtered_df[season_col].isin(selected_seasons)]  
+    if selected_sheets and sheet_col:
+        filtered_df = filtered_df[filtered_df[sheet_col].isin(selected_sheets)]      
           # --- TOP METRICS ROW ---
     st.markdown("### 📈 Key Performance Indicators")
     m1, m2, m3, m4 = st.columns(4)
