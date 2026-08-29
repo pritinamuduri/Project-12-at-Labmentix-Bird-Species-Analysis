@@ -123,7 +123,7 @@ else:
         st.subheader("Habitat & Seasonal Breakdown (Hover for Details)")
         col_a, col_b = st.columns(2)
         with col_a:
-            if not filtered_df.empty and 'habitat_type' in filtered_df.columns:
+            if not filtered_df.empty and hab_column in filtered_df.columns:
                 # Group data to include breakdown details in the tooltip
                 hab_counts = filtered_df[hab_column].value_counts(
                 ).reset_index()
