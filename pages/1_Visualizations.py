@@ -112,10 +112,8 @@ else:
      st.markdown("### 📈 Key Performance Indicators")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Filtered Records", f"{len(filtered_df):,}")
-    m2.metric("Active Habitats", filtered_df['habitat_type'].nunique(
-    ) if 'habitat_type' in filtered_df.columns else 0)
-    m3.metric("Admin Units Included", filtered_df['sheet_name'].nunique(
-    ) if 'sheet_name' in filtered_df.columns else 0)
+    m2.metric("Active Habitats", filtered_df['hab_column'].nunique() if hab_column in filtered_df.columns else 0)
+    m3.metric("Admin Units Included", filtered_df['sheet_column'].nunique() if sheet_column in filtered_df.columns else 0)
     m4.metric("Total Dataset Size", f"{len(df):,}")
     st.markdown("---")
     # --- TABS WITH POWER BI STYLE TOOLTIP CHARTS ---
