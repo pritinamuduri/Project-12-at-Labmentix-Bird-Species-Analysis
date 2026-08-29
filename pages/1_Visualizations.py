@@ -78,23 +78,25 @@ else:
 
 """
                 )
-    # --- APPLY FILTERS ---
-    filtered_df = df.copy()
-    if selected_habitats:
-        filtered_df = filtered_df[filtered_df['habitat_type'].isin(
-            selected_habitats)]
-        # Check and apply season filter safely
-    season_col = 'season' if 'season' in filtered_df.columns else (
-        'Season' if 'Season' in filtered_df.columns else None)
-    if selected_seasons:
-        filtered_df = filtered_df[filtered_df['season'].isin(selected_seasons)]
-    if selected_sheets:
-        filtered_df = filtered_df[filtered_df['sheet_name'].isin(
-            selected_sheets)]
-    if selected_years and 'year' in df.columns:
-        filtered_df = filtered_df[(filtered_df['year'] >= selected_years[0]) & (
-            filtered_df['year'] <= selected_years[1])]
-    # --- TOP METRICS ROW ---
+    # --- DYNAMIC SIDEBAR MULTISELECT FILTERS---
+    hab_col = 'habitat' if 'habitat' in df.columns else ('Habitat' if 'Habitat' in df.columns else None)
+    season_col = 'season' if 'season' in df.columns else ('Season' if 'Season' in df.columns else None)
+    sheet_col = 'sheet_name' if 'sheet_name' in df.columns else ('Sheet_Name' if 'Sheet_Name' in df.columns else None)
+    
+    selected_habitats = st.sidebar.mutiselect(
+        "Selected Habitats",
+        options=df[hab_col].dropna().unique().tolist() if hab_col else []
+    )
+    selected_seasons = st.sidebarmultiselect(
+        "Select Seasons",
+        options=df[season_col].dropna().unique().tolist() if season_col else []
+    )
+    selected_sheets = st.sidebar.mutiselect(
+        "Select Administrative Units (Sheets)",
+        options=df[sheet_col].dropna().unique().tolist() if sheet_col else []
+
+    )
+          # --- TOP METRICS ROW ---
     st.markdown("### 📈 Key Performance Indicators")
     m1, m2, m3, m4 = st.columns(4)
     m1.metric("Filtered Records", f"{len(filtered_df):,}")
@@ -279,7 +281,7 @@ else:
                 template="plotly_white"
             )
             st.plotly_chart(fig_loc, width="stretch")# or drop the parameter if default suffices
-            
+
         else:
              st.info("Location column not found in dataset for spatial breakdown.")
        
