@@ -185,6 +185,7 @@ else:
                                    * **Habitat Skew:** The disproportionate share highlights a higher concentration of recording activity or native bird density within forested park units.
 """
                         )
+        col1, col2 = st.columns(2)                
         with col2:
             st.markdown("### Actionable Recommendations")
             st.markdown(
