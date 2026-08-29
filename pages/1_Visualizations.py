@@ -96,7 +96,7 @@ else:
     if not selected_habitats:
         selected_habitats = df[hab_column].dropna().unique().tolist()
     if not selected_seasons:
-        selected_seasons = df['season'].dropna().unique().tolist()
+        selected_seasons = df[season_column].dropna().unique().tolist()
     if not selected_sheets:
         selected_sheets = df['sheet_name'].dropna().unique().tolist()
        # Initialize filtered dataframe
