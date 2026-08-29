@@ -19,19 +19,7 @@ if df.empty:
 else:
     # --- SIDEBAR INTERACTIVE FILTERS ---
     st.sidebar.header("Interactive Filters")
-    habitats_available = list(
-        df['habitat_type'].unique()) if 'habitat_type' in df.columns else []
-    selected_habitats = st.sidebar.multiselect(
-        "Select Habitats", habitats_available, default=habitats_available)
-    seasons_available = list(df['season'].unique()
-                             ) if 'season' in df.columns else []
-    selected_seasons = st.sidebar.multiselect(
-        "Select Seasons", seasons_available, default=seasons_available)
-    sheets_available = list(df['sheet_name'].unique()
-                            ) if 'sheet_name' in df.columns else []
-    selected_sheets = st.sidebar.multiselect(
-        "Select Administrative Units (Sheets)", sheets_available, default=sheets_available)
-    # Safe Year Filter Logic
+        # Safe Year Filter Logic
     selected_years = None
     if 'year' in df.columns:
         valid_years = df[df['year'] > 0]['year'].unique()
